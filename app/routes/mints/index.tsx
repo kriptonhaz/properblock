@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import ProperBlockLogo from "public/ProperBlockLogo.svg";
 
+import RoomDesktop from "public/RoomDekstop.svg";
+
 const Mints = () => {
   //State for forms
   const [walletAddress, setWallet] = useState("");
@@ -45,9 +47,13 @@ const Mints = () => {
   return (
     <>
       <div className="grid h-screen place-items-center">
-        <div className="lg:flex lg:items-center lg:justify-between">
-          <div className="mt-5 md:col-span-1 md:mt-0">
-            <div className="px-4 sm:px-0">
+        <div
+          className="w-fit shadow lg:flex lg:items-center lg:justify-between lg:overflow-hidden lg:rounded-md"
+          style={{ minWidth: 330 }}
+        >
+          <div className="w-fit">
+            <img src={RoomDesktop} alt="" className="w-96" />
+            <div className="px-4 text-center sm:px-0">
               <h3 className="text-lg font-medium leading-6 text-gray-900">
                 LIMA BEACH NFT
               </h3>
@@ -57,7 +63,7 @@ const Mints = () => {
               <p className="mt-1 text-sm text-gray-600">250/250</p>
             </div>
           </div>
-          <div className="mt-5 md:col-span-2 md:m-20">
+          <div className="">
             <div className="shadow sm:overflow-hidden sm:rounded-md">
               <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-3 gap-6">
@@ -103,12 +109,12 @@ const Mints = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
+              <div className="text-md bg-gray-50 px-4 py-3 sm:px-6">
                 <button
                   onClick={onMintPressed}
-                  className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium uppercase text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
-                  Save
+                  Mint Now
                 </button>
               </div>
             </div>
