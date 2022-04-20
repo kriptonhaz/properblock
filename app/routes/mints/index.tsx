@@ -36,6 +36,10 @@ const Mints = () => {
     setQuantity(Number(e.target.value));
   };
 
+  const handleChangeReferralCode = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setReferralCode(e.target.value);
+  };
+
   return (
     <>
       <div className="grid h-screen place-items-center">
@@ -67,6 +71,7 @@ const Mints = () => {
                         className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         placeholder="Input Referral Code (Optional)"
                         value={referralCode}
+                        onChange={handleChangeReferralCode}
                       />
                     </div>
                   </div>
