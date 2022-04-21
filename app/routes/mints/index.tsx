@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import ProperBlockLogo from "public/ProperBlockLogo.svg";
 
 import RoomDesktop from "public/RoomDekstop.svg";
 
+import {
+  connectWallet,
+  getCurrentWalletConnected,
+} from "app/utils/metamask-interact";
+
 const Mints = () => {
   //State for forms
   const [walletAddress, setWallet] = useState("");
+  const [status, setStatus] = useState("");
   const [isMinted, setMinted] = useState(false);
   const [referralCode, setReferralCode] = useState("");
   const [quantity, setQuantity] = useState(0);
@@ -14,6 +20,19 @@ const Mints = () => {
 
   //Constant state
   const [maxQuantity] = useState(80);
+
+  //@ts-ignore
+  useEffect(async () => {
+    const { address, status } = await getCurrentWalletConnected();
+    setWallet(address);
+    setStatus(status);
+  }, []);
+
+  const handleConnect = async () => {
+    const walletResponse = await connectWallet();
+    setStatus(walletResponse.status);
+    setWallet(walletResponse.address);
+  };
 
   const onMintPressed = () => {
     if (quantity <= maxQuantity - mintedQuantity) {
@@ -119,8 +138,18 @@ const Mints = () => {
             </div>
 
             <div>
-              <button className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium uppercase text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                Connect
+              <button
+                onClick={handleConnect}
+                className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium uppercase text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                {walletAddress.length > 0 ? (
+                  "Connected: " +
+                  String(walletAddress).substring(0, 6) +
+                  "..." +
+                  String(walletAddress).substring(38)
+                ) : (
+                  <span>Connect Wallet</span>
+                )}
               </button>
             </div>
           </div>
@@ -198,6 +227,9 @@ const Mints = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <h1>{status}</h1>
         </div>
         <footer className="w-full bg-gray-100 text-center text-gray-600 lg:text-left">
           <div className="mx-6 py-10 text-center md:text-left">
