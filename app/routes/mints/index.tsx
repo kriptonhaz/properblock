@@ -47,6 +47,85 @@ const Mints = () => {
   return (
     <>
       <div className="grid h-screen place-items-center">
+        <div className="flex w-full items-center">
+          <div
+            className="grid-1 grid md:grid-cols-2 lg:grid-cols-4"
+            style={{ marginLeft: 20 }}
+          >
+            <div className="">
+              <h1
+                className="
+            flex
+            items-center
+            justify-center
+            font-semibold
+            uppercase
+            md:justify-start
+          "
+              >
+                <img className="mx-0.5" src={ProperBlockLogo} alt="" />
+                PROPERBLOCK
+              </h1>
+            </div>
+          </div>
+
+          <div
+            className="ml-auto flex items-center justify-center gap-x-5"
+            style={{ paddingRight: 20 }}
+          >
+            <div>
+              <h1
+                className="
+            flex
+            items-center
+            justify-center
+            font-semibold
+            uppercase
+            md:justify-start
+          "
+              >
+                whitepaper
+              </h1>
+            </div>
+
+            <div>
+              <h1
+                className="
+            flex
+            items-center
+            justify-center
+            font-semibold
+            uppercase
+            md:justify-start
+          "
+              >
+                how it works
+              </h1>
+            </div>
+
+            <div>
+              <h1
+                className="
+            flex
+            items-center
+            justify-center
+            font-semibold
+            uppercase
+            md:justify-start
+          "
+              >
+                projects
+              </h1>
+            </div>
+
+            <div>
+              <button className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium uppercase text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                Connect
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div
           className="w-fit shadow lg:flex lg:items-center lg:justify-between lg:overflow-hidden lg:rounded-md"
           style={{ minWidth: 330 }}
@@ -120,7 +199,7 @@ const Mints = () => {
             </div>
           </div>
         </div>
-        <footer className="bg-gray-100 text-center text-gray-600 lg:text-left">
+        <footer className="w-full bg-gray-100 text-center text-gray-600 lg:text-left">
           <div className="mx-6 py-10 text-center md:text-left">
             <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               <div className="">
